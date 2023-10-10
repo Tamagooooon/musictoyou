@@ -1,24 +1,31 @@
-# README
+# Music to You
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+聴いてみたい音楽を検索できたり、自分の好きな音楽を投稿して共有できるコミュニティサイト。
 
-Things you may want to cover:
+### テーマを選んだ理由
+音楽のJ-POPを聴き始めたのがきっかけで様々なアーティストの音楽を聴くようになりました。
+しかし、音楽を調べるにあたって、アバウトにしか調べることしかできず自分の好みの音楽を見つけることが難しく感じていました。<br>
+他の音楽のジャンルを調べるにあたってどのように調べることが正解か困っていましたが、他の人がどのような音楽を聴くのか知ることができる
+サービスがあれば便利だと考えました。<br>
+また、音楽が好きな人も新たなアーティストの音楽を聴き始めるきっかけになると思い、このテーマにしました。<br>
+従来の音楽配信サイトと違うところは、顔を知らないユーザ同士でも、趣味が同じであれば好きな音楽を共有できるところです。
 
-* Ruby version
+### ターゲットユーザ
+- 新しく好きな音楽を見つけたい人
+- 自分の好きな音楽を共有することで、同じ趣味を持つ人を見つけたい人
 
-* System dependencies
+### 主な利用シーン
+- 新しいアーティストの音楽を聴き始めたい時
+- アーティストのライブや、音楽フェスに行くことで興味を持った音楽を検索したい時
+- 自分が好きな音楽を共有したい時
 
-* Configuration
+## 設計書
+後ほど作成予定
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS:Linux(CentOS)
+- 言語:HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク:Ruby on Rails
+- JSライブラリ:JQuery
