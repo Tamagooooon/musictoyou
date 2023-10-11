@@ -1,2 +1,24 @@
-<h1>User::Homes#top</h1>
-<p>Find me in app/views/user/homes/top.html.erb</p>
+<%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post %>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-6">
+
+      <%#= render 'public/searches/genre', genres: @genres %>
+    </div>
+
+    <div class="col-md-8" style="background-image: url(<%= asset_path('huukei.jpeg') %>)">
+
+      <p>
+        <strong>Music To You へようこそ</strong><br>
+        音楽共有型SNS<br>
+        知らない音楽を発掘しよう<br>
+        会員ではない方も投稿の閲覧はできますが、投稿するには会員登録が必要になります。
+      </p>
+
+    <div>
+      <%= submit_tag "投稿を見てみる", class: "btn btn-success mx-auto" %>
+    </div>
+  </div>
+</div>

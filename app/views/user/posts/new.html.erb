@@ -1,0 +1,10 @@
+<h1>共有フォーム</h1>
+<%= form_with model: @post do |f| %>
+  <h4>アーティスト写真</h4>
+  <%= f.file_field :image, accept: "image/*" %>
+  <h4>アーティスト名</h4>
+  <%= f.text_field :title %>
+  <h4>曲名　おすすめ理由</h4>
+  <%= f.text_area :body %>
+  <%= f.submit '共有する' %>
+<% end %>

@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
-  root to: "user/homes#top"
-  
+
+  # ゲストログイン
+  scope module: :user do
+    resources :posts, only: [:new, :index, :show]
+    post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
+  end
+
   # 顧客用
-  # URL /customers/sign_in ...
+  # URL /users/sign_in ...
   devise_for :users, skip: [:passwords], controllers: {
     registrations: "user/registrations",
     sessions: 'user/sessions'
   }
+
+  root to: "user/homes#top"
+  get 'about' => 'user/homes#about'
+
 
   # 管理者用
   # URL /admin/sign_in ...
