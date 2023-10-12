@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   # ゲストログイン
   scope module: :user do
-    resources :posts, only: [:new, :index, :show]
+    resources :posts, only: [:new, :index, :show, :create]
     post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
   end
 

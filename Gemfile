@@ -57,4 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 
-gem 'audiojs-rails'
+# gem 'audiojs-rails'
+
+# gem 'carrierwave'
