@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
-
   # ゲストログイン
   scope module: :user do
-    resources :posts, only: [:new, :index, :show, :create]
+    resources :posts, only: [:new, :index, :show, :create, :destroy]
     post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
   end
 
   # 顧客用
   # URL /users/sign_in ...
-  devise_for :users, skip: [:passwords], controllers: {
+  devise_for :user, skip: [:passwords], controllers: {
     registrations: "user/registrations",
     sessions: 'user/sessions'
   }

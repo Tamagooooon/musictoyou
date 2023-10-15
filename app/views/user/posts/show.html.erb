@@ -1,2 +1,30 @@
-<h1>User::Posts#show</h1>
-<p>Find me in app/views/user/posts/show.html.erb</p>
+<div class="container">
+  <div class="row">
+
+      <div>
+        <p>投稿ユーザー画像：<%= image_tag 'man1.png' %></p>
+        <p>アーティスト画像 : <%= image_tag @post.get_image %></p>
+        <p>アーティスト名：<%= @post.title %></p>
+        <div id="waveform_<%= @post.id %>">
+        <!-- the waveform will be rendered here -->
+        </div>
+        <button onclick="wavesurfer_<%= @post.id %>.playPause()">再生・停止</button>
+        <p>曲名と概要：<%= @post.body %></p>
+        <p>ユーザーネーム：<%#= post.user.name %></p>
+
+        <% if @post.user == current_user %>
+          <%= link_to "投稿の削除", post_path(@post), class: "btn btn-danger mx-auto", method: :delete %>
+        <% end %>
+
+        <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+        <script>
+          const wavesurfer_<%= @post.id %> = WaveSurfer.create({
+            container: '#waveform_<%= @post.id %>',
+            waveColor: '#4F4A85',
+            progressColor: '#383351',
+            url: '<%= rails_blob_path(@post.audio) %>',
+          })
+        </script>
+      </div>
+  </div>
+</div>
