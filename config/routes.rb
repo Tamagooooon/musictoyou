@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   scope module: :user do
     resources :posts, only: [:new, :index, :show, :create, :destroy]
-      resources :user, only: [:show, :edit]
+      resources :user, only: [:show, :edit, :update]
     post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
   end
 
