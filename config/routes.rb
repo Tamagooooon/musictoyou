@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   # ゲストログイン
-  scope module: :user do
-    resources :posts, only: [:new, :index, :show, :create, :destroy]
-    post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
-  end
+
 
   # 顧客用
   # URL /users/sign_in ...
@@ -11,6 +8,12 @@ Rails.application.routes.draw do
     registrations: "user/registrations",
     sessions: 'user/sessions'
   }
+
+  scope module: :user do
+    resources :posts, only: [:new, :index, :show, :create, :destroy]
+      resources :user, only: [:show, :edit]
+    post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
+  end
 
   root to: "user/homes#top"
   get 'about' => 'user/homes#about'
