@@ -1,0 +1,54 @@
+<div class="container">
+
+  <div class="row mt-2">
+    <div class="col-lg-12">
+      <h3><%= @post.name %></h3>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-lg-12">
+      <%= image_tag 'man1.png' %>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-lg-12">
+      <% if @user.id == current_user.id %>
+        <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-info btn-block" %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-lg-12">
+    <% @posts.each do |post| %>
+      <div>
+        <p>投稿ユーザー画像：<%= image_tag 'man1.png' %></p>
+        <p>アーティスト画像 :
+          <%= link_to post_path(post.id) do %>
+            <%= image_tag post.get_image %>
+          <% end %>
+        </p>
+        <p>アーティスト名：<%= post.title %></p>
+        <div id="waveform_<%= post.id %>">
+        <!-- the waveform will be rendered here -->
+        </div>
+        <button onclick="wavesurfer_<%= post.id %>.playPause()">再生・停止</button>
+        <p>曲名と概要：<%= post.body %></p>
+        <p>ユーザーネーム：<%= post.user.name %></p>
+        <p>投稿日：<%= post.created_at.strftime('%Y/%m/%d') %></p>
+        <p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
+        <script>
+          const wavesurfer_<%= post.id %> = WaveSurfer.create({
+            container: '#waveform_<%= post.id %>',
+            waveColor: '#4F4A85',
+            progressColor: '#383351',
+            url: '<%= rails_blob_path(post.audio) %>',
+          })
+        </script>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>

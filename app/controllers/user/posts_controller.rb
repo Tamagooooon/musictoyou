@@ -19,7 +19,7 @@ class User::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    #@post_comment = PostComment.new
+    @post_comment = PostComment.new
   end
 
   def destroy
@@ -29,7 +29,7 @@ class User::PostsController < ApplicationController
   end
 
   private
-  
+
   def post_params
     params.require(:post).permit(:user_id, :body, :title, :image, :audio)
   end
