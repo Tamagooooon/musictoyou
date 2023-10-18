@@ -1,76 +1,84 @@
 <% posts.each do |post| %>
 
-<div class="row mt-5">
-  <div class="col-lg-12 text-center">
-    <p>投稿ユーザー画像：<%= image_tag 'man1.png' %></p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-lg-12 text-center">
+      <p>投稿ユーザー画像：<%= image_tag 'man1.png' %></p>
+    </div>
   </div>
-</div>
 
-<div class="row mt-5">
-  <div class="col-lg-12 text-center">
-    <p>アーティスト画像 :
-      <%= link_to post_path(post.id) do %>
-        <%= image_tag post.get_image %>
-      <% end %>
-    </p>
+  <div class="row mt-5">
+    <div class="col-lg-12 text-center">
+      <p>アーティスト画像 :
+        <%= link_to post_path(post.id) do %>
+          <%= image_tag post.get_image %>
+        <% end %>
+      </p>
+    </div>
   </div>
-</div>
 
-<div class="row mt-5">
-  <div class="col-lg-12 text-center">
-    <p>アーティスト名：<%= post.title %></p>
+  <div class="row mt-5">
+    <div class="col-lg-12 text-center">
+      <p>アーティスト名：<%= post.title %></p>
+    </div>
   </div>
-</div>
 
-<div class="row mt-5">
-  <div class="col-lg-12 text-center">
-    <div id="waveform_<%= post.id %>">
-      <!-- the waveform will be rendered here -->
+  <div class="row mt-5">
+    <div class="col-lg-12 text-center">
+      <div id="waveform_<%= post.id %>">
+        <!-- the waveform will be rendered here -->
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-lg-12 text-center">
+      <button onclick="wavesurfer_<%= post.id %>.playPause()">再生・停止</button>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-lg-12 text-center">
+      <p>曲名と概要：<%= post.body %></p>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-lg-12 text-center">
+      <p>ユーザーネーム：<%= post.user.name %></p>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-lg-12 text-center">
+      <p>投稿日：<%= post.created_at.strftime('%Y/%m/%d') %></p>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-lg-12 text-center">
+      <p><%= link_to "#{post.post_comments.count} コメントをする", post_path(post.id) %></p>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-lg-12 text-center">
+      <script>
+        const wavesurfer_<%= post.id %> = WaveSurfer.create({
+        container: '#waveform_<%= post.id %>',
+        waveColor: '#4F4A85',
+        progressColor: '#383351',
+        url: '<%#= rails_blob_path(post.audio) %>',
+      })
+      </script>
+    </div>
+  </div>
+
+  <% end %>
+
+   <div class="row mt-5">
+    <div class="col-lg-12 text-center">
+      <%= paginate posts %>
     </div>
   </div>
 </div>
-
-<div class="row mt-5">
-  <div class="col-lg-12 text-center">
-    <button onclick="wavesurfer_<%= post.id %>.playPause()">再生・停止</button>
-  </div>
-</div>
-
-<div class="row mt-5">
-  <div class="col-lg-12 text-center">
-    <p>曲名と概要：<%= post.body %></p>
-  </div>
-</div>
-
-<div class="row mt-5">
-  <div class="col-lg-12 text-center">
-    <p>ユーザーネーム：<%= post.user.name %></p>
-  </div>
-</div>
-
-<div class="row mt-5">
-  <div class="col-lg-12 text-center">
-    <p>投稿日：<%= post.created_at.strftime('%Y/%m/%d') %></p>
-  </div>
-</div>
-
-<div class="row mt-5">
-  <div class="col-lg-12 text-center">
-    <p><%= link_to "#{post.post_comments.count} コメントをする", post_path(post.id) %></p>
-  </div>
-</div>
-
-<div class="row mt-5">
-  <div class="col-lg-12 text-center">
-    <script>
-      const wavesurfer_<%= post.id %> = WaveSurfer.create({
-      container: '#waveform_<%= post.id %>',
-      waveColor: '#4F4A85',
-      progressColor: '#383351',
-      url: '<%= rails_blob_path(post.audio) %>',
-      })
-    </script>
-  </div>
-</div>
-
-<% end %>

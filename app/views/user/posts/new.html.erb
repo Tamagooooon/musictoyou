@@ -6,6 +6,19 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-lg-10 text-center">
+    <% if @post.errors.any? %>
+      <%= @post.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    </div>
+  </div>
+
   <%= form_with model: @post do |f| %>
   <div class="row mt-5">
     <div class="col-lg-12 text-center">
