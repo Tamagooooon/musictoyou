@@ -1,5 +1,4 @@
 <% posts.each do |post| %>
-
 <div class="container">
   <div class="row mt-5">
     <div class="col-lg-12 text-center">
@@ -63,16 +62,18 @@
 
   <div class="row mt-5">
     <div class="col-lg-12 text-center">
-      <script>
-        const wavesurfer_<%= post.id %> = WaveSurfer.create({
-        container: '#waveform_<%= post.id %>',
-        waveColor: '#4F4A85',
-        progressColor: '#383351',
-        url: '<%#= rails_blob_path(post.audio) %>',
-      })
-      </script>
+      <div id="waveform_<%= post.id %>">
     </div>
   </div>
+
+  <script>
+    const wavesurfer_<%= post.id %> = WaveSurfer.create({
+      container: '#waveform_<%= post.id %>',
+      waveColor: '#4F4A85',
+      progressColor: '#383351',
+      url: '<%= post.audio.url %>',
+    })
+  </script>
 
   <% end %>
 

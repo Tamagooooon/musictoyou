@@ -18,6 +18,7 @@
 
         <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
         <script>
+          console.log('<%= rails_blob_path(@post.audio) %>')
           const wavesurfer_<%= @post.id %> = WaveSurfer.create({
             container: '#waveform_<%= @post.id %>',
             waveColor: '#4F4A85',
