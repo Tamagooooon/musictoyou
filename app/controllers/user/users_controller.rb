@@ -2,6 +2,8 @@ class User::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.postspage(params[:page])
+    bookmarks = Bookmark.where(user_id: current_user.id).pluck(:post_id)
+    @bookmarks = Post.find(bookmarks)
   end
 
   def edit
