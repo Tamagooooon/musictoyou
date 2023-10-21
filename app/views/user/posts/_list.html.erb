@@ -1,3 +1,7 @@
+<div class="row d-flex border-bottom m-5">
+  <div class="col-1 py-3 font-weight-bold">タグ</div>
+</div>
+
 <% posts.each do |post| %>
 <div class="container">
   <div class="row mt-5">
@@ -43,6 +47,14 @@
   </div>
 
   <div class="row mt-5">
+    <div class="col-1 py-3">
+      <% post.tags.each do |tag| %>
+        <%= tag.tag_type %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row mt-5">
     <div class="col-lg-12 text-center">
       <p>ユーザーネーム：<%= post.user.name %></p>
     </div>
@@ -75,11 +87,10 @@
     })
   </script>
 
-  <% end %>
+<% end %>
 
-   <div class="row mt-5">
-    <div class="col-lg-12 text-center">
-      <%= paginate posts %>
-    </div>
+<div class="row mt-5">
+  <div class="col-lg-12 text-center">
+    <%= paginate posts %>
   </div>
 </div>

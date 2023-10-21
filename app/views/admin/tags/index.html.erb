@@ -1,2 +1,52 @@
-<h1>Admin::Tags#index</h1>
-<p>Find me in app/views/admin/tags/index.html.erb</p>
+<div class="container border border-white contents-area bg-white" >
+  <div class="row mt-5 mb-5">
+    <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 mx-auto">
+
+      <%#= render "error", tag: @tag %>
+      <h3><strong><%= flash[:notice] %><%= flash[:alert] %></strong></h3>
+      <h3 class="text-center"><strong class="border-bottom border-dark">タグ一覧・追加/削除</strong></h3>
+
+        <%= form_with model: @tag, url: admin_tags_path,method: :post do |f| %>
+          <table class="table table-border contents-area mt-5">
+            <tbody>
+              <tr>
+                <td class="align-middle">タグ名</td>
+                <td class="center align-middle">
+                  <%= f.text_field:tag_type,:size=>"35" %>
+                </td>
+                <td colspan="2"></td>
+                <td>
+                  <%= f.submit "新規登録", class: "btn btn-primary btn-lg" %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        <% end %>
+          <thead class="table-active">
+            <tr>
+              <th>タグ</th>
+              <th colspan="6"></th>
+            </tr>
+          </thead>
+            <tbody>
+              <% @tags.each do |tag| %>
+                <tr>
+                  <td class="align-middle"><%= tag.tag_type %></td>
+                  <td colspan="3"></td>
+                  <td>
+                    <%= link_to "タグを変更する", edit_admin_tag_path(tag.id), class: "btn btn-success" %>
+                    <%= link_to "タグを削除する", admin_tag_path(tag.id), class: "btn btn-danger", method: :delete, "data-confirm" => "本当にタグを削除しますか?" %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+          <div class="pagination justify-content-center mt-3">
+            <%#= paginate @tags, theme: "bootstrap-5" %>
+          </div>
+
+    </div>
+  </div>
+</div>
+

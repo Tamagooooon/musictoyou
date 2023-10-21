@@ -1,2 +1,29 @@
-<h1>Admin::Tags#edit</h1>
-<p>Find me in app/views/admin/tags/edit.html.erb</p>
+<div class="container border border-white contents-area bg-white" >
+<div class="row mt-4 md-2">
+  <div class="col-md-6 mx-auto">
+
+    <%= render "error", tag: @tag %>
+    <h3><strong><%= flash[:alert] %></strong></h3>
+    <h3><strong class="border-bottom border-dark">タグ編集</strong></h3>
+
+      <%= form_with model: @tag, url:admin_tag_path,method: :patch do |f| %>
+        <table class="table table-borderless mt-3">
+          <tbody>
+            <tr>
+              <td class="align-middle">
+                <label for="genre_name">タグ名</label>
+              </td>
+              <td class="align-middle">
+                <%= f.text_field:tag_type %>
+              </td>
+              <td>
+                <%= f.submit "変更を保存",class:"btn btn-success" %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+
+    </div>
+  </div>
+</div>

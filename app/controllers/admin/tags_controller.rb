@@ -1,6 +1,6 @@
 class Admin::TagsController < ApplicationController
   before_action :authenticate_admin!
-  
+
   def index
     @tag = Tag.new
     @tags = Tag.page(params[:page])
@@ -41,6 +41,4 @@ class Admin::TagsController < ApplicationController
   def tag_params
     params.require(:tag).permit(:tag_type, tag_ids: [])
   end
-
-end
 end
