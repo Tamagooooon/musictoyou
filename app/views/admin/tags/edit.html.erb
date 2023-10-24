@@ -3,6 +3,7 @@
   <div class="col-md-6 mx-auto">
 
     <%= render "error", tag: @tag %>
+
     <h3><strong><%= flash[:alert] %></strong></h3>
     <h3><strong class="border-bottom border-dark">タグ編集</strong></h3>
 
@@ -17,7 +18,7 @@
                 <%= f.text_field:tag_type %>
               </td>
               <td>
-                <%= f.submit "変更を保存",class:"btn btn-success" %>
+                <%= f.submit "変更を保存",class: "btn btn-success",  method: :patch, "data-confirm" => "このタグを変更した場合、投稿者のタグも同時に変更されます。本当に変更してよろしいですか?"  %>
               </td>
             </tr>
           </tbody>

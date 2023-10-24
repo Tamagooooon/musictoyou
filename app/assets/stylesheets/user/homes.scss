@@ -1,3 +1,30 @@
 // Place all the styles related to the user/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+container {
+  background: linear-gradient(-20deg, #d558c8 0%, #24d292 100%);
+}
+
+.title {
+  font-family: cursive;
+}
+
+.body {
+  font-family: serif;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: table;
+  background-image: url(/assets/huukei.jpg);
+  background-color:rgba(255,255,255,0.4);
+  background-blend-mode:lighten;
+  background-size: 100% 100%;
+}
+
+.text-center {
+  display: table-cell;
+  vertical-align: middle;
+}

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12">
       <div>
-        <p>投稿ユーザー画像：<%#= image_tag @post.user.get_profile_image(100,100) %><%#= image_tag 'man1.png' %></p>
+        <p>投稿ユーザー画像：<%= image_tag @post.user.get_profile_image(100,100) %></p>
         <p>アーティスト画像 : <%= image_tag @post.get_image %></p>
         <p>アーティスト名：<%= @post.title %></p>
         <div id="waveform_<%= @post.id %>">
@@ -10,7 +10,22 @@
         </div>
         <button onclick="wavesurfer_<%= @post.id %>.playPause()">再生・停止</button>
         <p>曲名と概要：<%= @post.body %></p>
-        <p>ユーザーネーム：<%#= post.user.name %></p>
+        <p>ユーザーネーム：<%= @post.user.name %></p>
+
+        <% @post.tags.each do |tag| %>
+        <table class="table table-bordered table-hover bg-white mb-5">
+          <tbody>
+            <tr>
+              <th style="width: 30%">タグ</th>
+              <td style="width: 70%"><%= tag.tag_type %></td>
+            </tr>
+          </tbody>
+        </table>
+        <% end %>
+
+        <% if @post.user == current_user %>
+          <%= link_to "投稿の編集", edit_post_path(@post), class: "btn btn-info mx-auto" %>
+        <% end %>
 
         <% if @post.user == current_user %>
           <%= link_to "投稿の削除", post_path(@post), class: "btn btn-danger mx-auto", method: :delete %>
@@ -29,50 +44,12 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-lg-12">
-      <p>コメント件数：<%= @post.post_comments.count %></p>
-      <% @post.post_comments.each do |post_comment| %>
-        <p><%= image_tag 'man1.png' %></p>
-        <%= post_comment.user.name %>
-        <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-        <% if post_comment.user == current_user %>
-          <%= link_to "コメントを削除", post_post_comment_path(post_comment.post, post_comment), class: "btn btn-danger mx-auto", method: :delete %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-6">
-      <% if @post.favorited_by?(current_user) %>
-        <p>
-          <%= link_to post_favorites_path(@post), method: :delete do %>
-            ♥<%= @post.favorites.count %>
-          <% end %>
-        </p>
-        <% else %>
-        <p>
-          <%= link_to post_favorites_path(@post), method: :post do %>
-            ♡<%= @post.favorites.count %>
-          <% end %>
-        </p>
-       <% end %>
-    </div>
-  </div>
+  <%= render "comment", post: @post %>
+  <%= render "favorite", post: @post %>
 
   <div class="row">
     <div class="col-lg-6">
       <%= render "bookmark", post: @post %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-12">
-      <%= form_with model: [@post, @post_comment] do |f| %>
-        <%= f.text_area :comment, rows: '5', placeholder: "コメントをする" %>
-        <%= f.submit "送信する", class: "btn btn-info btn-block" %>
-      <% end %>
     </div>
   </div>
 </div>

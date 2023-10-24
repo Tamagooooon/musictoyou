@@ -1,0 +1,12 @@
+ <div class="row">
+    <div class="col-lg-10 text-center">
+    <% if tag.errors.any? %>
+      <%= tag.errors.count %>件のエラーが発生しました
+      <ul>
+        <% tag.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    </div>
+  </div>

@@ -39,6 +39,6 @@ class Admin::TagsController < ApplicationController
 
   private
   def tag_params
-    params.require(:tag).permit(:tag_type, tag_ids: [])
+    params.require(:tag).permit(:tag_type, :tag_ids)
   end
 end

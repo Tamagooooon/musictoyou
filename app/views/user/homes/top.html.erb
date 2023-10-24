@@ -2,15 +2,9 @@
 
 <div class="container">
   <div class="row">
-
-    <div class="col-md-6">
-
-      <%#= render 'public/searches/genre', genres: @genres %>
-    </div>
-
     <div class="col-md-8">
 
-      <p>
+      <p class="title">
         <strong>Music To You へようこそ</strong><br>
         音楽共有型SNS<br>
         知らない音楽を発掘しよう<br>
@@ -18,7 +12,16 @@
       </p>
 
     <div>
-      <%= submit_tag "投稿を見てみる", class: "btn btn-success mx-auto" %>
+      <%= link_to "投稿を見てみる", posts_path, class: "btn btn-info mx-auto" %>
     </div>
+  </div>
+</div>
+
+<div class="cover align-middle">
+  <div class="text-center">
+    <p class="sub-title">〜旅行の思い出を共有する〜</p>
+    <h1 class="title mb-2">Traveler</h1>
+    <h2 class="btn btn-primary mr-2">新規登録</h2>
+    <h2 class="btn btn-success ml-2">ログイン</h2>
   </div>
 </div>

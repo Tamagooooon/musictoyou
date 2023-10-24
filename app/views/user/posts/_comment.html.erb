@@ -1,0 +1,22 @@
+  <div class="row">
+    <div class="col-lg-12">
+      <%= form_with model: [@post, @post_comment] do |f| %>
+        <%= f.text_area :comment, rows: '5', placeholder: "コメントをする" %>
+        <%= f.submit "送信する", class: "btn btn-info btn-block" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <p>コメント件数：<%= @post.post_comments.count %></p>
+      <% @post.post_comments.each do |post_comment| %>
+        <p><%= image_tag 'man1.png' %></p>
+        <%= post_comment.user.name %>
+        <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+        <% if post_comment.user == current_user %>
+          <%= link_to "コメントを削除", post_post_comment_path(post_comment.post, post_comment), class: "btn btn-danger mx-auto", method: :delete %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>

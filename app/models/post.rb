@@ -16,6 +16,10 @@ class Post < ApplicationRecord
     bookmarks.find_by(user_id: user.id)
   end
 
+  def self.search(keyword)
+    where("title LIKE ? or body LIKE ?", "%#{keyword}%", "%#{keyword}%" )
+  end
+
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')

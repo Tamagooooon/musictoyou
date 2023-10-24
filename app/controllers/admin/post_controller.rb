@@ -1,17 +1,7 @@
-class User::PostsController < ApplicationController
-  def new
-    @post = Post.new
-  end
-
-  def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
-    if @post.save
-      redirect_to posts_path
-    else
-      render :new
-    end
-  end
+class Admin::PostController < ApplicationController
+  before_action :authenticate_user!
+　before_action :if_not_admin
+  before_action :set_post, only: [:index, :show, :edit, :update, :destroy]
 
   def index
     @post = Post.page(params[:page])
@@ -36,7 +26,7 @@ class User::PostsController < ApplicationController
   end
 
   def edit
-   @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def update
@@ -44,13 +34,23 @@ class User::PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to post_path(@post.id)
     else
-      render :new
+      render :index
     end
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to posts_path
   end
 
   private
 
-  def post_params
-    params.require(:post).permit(:user_id, :body, :title, :image, :audio, :facility_name, :tag_ids )
+  def if_not_admin
+    redirect_to root_path unless current_user.admin?
+  end
+
+  def set_post
+    @post = post.find(params[:id])
   end
 end
