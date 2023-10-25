@@ -1,27 +1,21 @@
-<%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post %>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-auto">
 
-      <p class="title">
-        <strong>Music To You へようこそ</strong><br>
-        音楽共有型SNS<br>
-        知らない音楽を発掘しよう<br>
-        会員ではない方も投稿の閲覧はできますが、投稿するには会員登録が必要になります。
-      </p>
+      <div class="background">
+        <p class="text-white">
+          <strong>Music To You へようこそ</strong><br>
+          音楽共有型SNS<br>
+          知らない音楽を発掘しよう<br>
+          会員ではない方も投稿の閲覧はできますが、投稿するには会員登録が必要になります。
+        </p>
+      </div>
 
-    <div>
-      <%= link_to "投稿を見てみる", posts_path, class: "btn btn-info mx-auto" %>
+      <div>
+        <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-info mx-auto",method: :post %>
+        <%= link_to "投稿を見てみる", posts_path, class: "btn btn-info mx-auto" %>
+      </div>
     </div>
-  </div>
-</div>
-
-<div class="cover align-middle">
-  <div class="text-center">
-    <p class="sub-title">〜旅行の思い出を共有する〜</p>
-    <h1 class="title mb-2">Traveler</h1>
-    <h2 class="btn btn-primary mr-2">新規登録</h2>
-    <h2 class="btn btn-success ml-2">ログイン</h2>
   </div>
 </div>

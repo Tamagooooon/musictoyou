@@ -1,6 +1,6 @@
-class Admin::PostController < ApplicationController
+class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
-　before_action :if_not_admin
+  before_action :if_not_admin
   before_action :set_post, only: [:index, :show, :edit, :update, :destroy]
 
   def index

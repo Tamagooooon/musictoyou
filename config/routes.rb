@@ -1,15 +1,5 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'post/index'
-    get 'post/show'
-    get 'post/edit'
-  end
-  namespace :admin do
-    get 'tags/index'
-    get 'tags/edit'
-  end
   # ゲストログイン
-
 
   # 顧客用
   # URL /users/sign_in ...
@@ -28,7 +18,7 @@ Rails.application.routes.draw do
 
   scope module: :user do
     resources :users, only: [:show, :edit, :update]
-    post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
     get "search" => "posts#search"
   end
 
@@ -45,11 +35,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :tags, only: [:index, :create, :edit, :update, :destroy]
   end
-  
-  resources :posts
-    namespace :admin do
-      resources :posts, only: [:index, :show, :edit, :update, :destroy]
-    end
+
+  namespace :admin do
+    resources :posts, only: [:index, :show, :edit, :update, :destroy]
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end
