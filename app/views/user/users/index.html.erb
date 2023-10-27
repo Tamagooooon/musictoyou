@@ -1,0 +1,28 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+
+    <%= render 'user_info', user: @user, post: @post %>
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= image_tag @user.get_profile_image %></td>
+            <td><%= user.name %></td>
+            <td><%= link_to 'Show', user_path(user.id) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

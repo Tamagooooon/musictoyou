@@ -1,20 +1,16 @@
-
 <div class="container">
   <div class="row">
-    <div class="col-auto">
-
-      <div class="background">
-        <p class="text-white">
-          <strong>Music To You へようこそ</strong><br>
-          音楽共有型SNS<br>
-          知らない音楽を発掘しよう<br>
-          会員ではない方も投稿の閲覧はできますが、投稿するには会員登録が必要になります。
-        </p>
-      </div>
-
-      <div>
-        <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-info mx-auto",method: :post %>
-        <%= link_to "投稿を見てみる", posts_path, class: "btn btn-info mx-auto" %>
+    <div class="col-lg-12 text-center">
+      <p class="text-white text-center">
+        <strong>Music To You へようこそ</strong><br>
+        音楽共有型SNS<br>
+        知らない音楽を発掘しよう<br>
+        会員ではない方も投稿の閲覧はできますが、投稿するには会員登録が必要になります。
+      </p>
+    </div>
+      <div class="col-lg-12 text-center">
+        <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-outline-light mx-auto", method: :post %>
+        <%= link_to "投稿を見てみる", posts_path, class: "btn btn-outline-light mx-auto" %>
       </div>
     </div>
   </div>

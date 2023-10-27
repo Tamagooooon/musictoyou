@@ -8,78 +8,78 @@
     </li>
 
     <li class="nav-item">
-      <%= link_to admin_posts_path do %>
-        <i class="fa-solid fa-users">投稿一覧</i>
+      <%= link_to admin_posts_path, class: "btn btn-outline-light mx-auto" do %>
+        投稿一覧
       <% end %>
     </li>
 
     <li class="nav-item">
-      <%= link_to admin_tags_path do%>
-        <i class="fas fa-tags">タグ一覧</i>
+      <%= link_to admin_tags_path, class: "btn btn-outline-light mx-auto" do %>
+        タグ一覧
       <% end %>
     </li>
 
     <li class="nav-item">
-      <%= link_to destroy_admin_session_path, method: :delete do %>
-        <i class="fas fa-sign-out-alt">ログアウト</i>
+      <%= link_to destroy_admin_session_path, class: "btn btn-outline-light mx-auto", method: :delete do %>
+        ログアウト
       <% end %>
     </li>
 
-  <!--customersログイン時のヘッダー-->
+  <!--usersログイン時のヘッダー-->
   <% elsif user_signed_in? %>
     <li class="nav-item">
-      ようこそ<%= current_userr.name %>さん
-    </li>
+      ようこそ<%= current_user.name %>さん
+    </li>     
 
     <li class="nav-item">
-      <%= link_to post_path(@user.id) do %>
-        <i class="fas fa-user-circle">マイページ</i>
+      <%= link_to users_path, class: "btn btn-outline-light mx-auto" do %>
+        ユーザー一覧
       <% end %>
     </li>
 
     <li class="nav-item">
-      <%= link_to  posts_path do %>
+      <%= link_to posts_path, class: "btn btn-outline-light mx-auto" do %>
+        投稿一覧
+      <% end %>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to new_post_path, class: "btn btn-outline-light mx-auto" do %>
+        新規投稿
+      <% end %>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to destroy_user_session_path, class: "btn btn-outline-light mx-auto", method: :delete do %>
+        ログアウト
+      <% end %>
+    </li>
+
+  <% else %>
+    <!--ログイン前のヘッダー-->
+    <li class="nav-item">
+      <%= link_to about_path do %>
+        <i class="fa-solid fa-eject">About</i>
+      <% end %>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to posts_path do %>
         <i class="fa-solid fa-cake-candles">投稿一覧</i>
       <% end %>
     </li>
 
     <li class="nav-item">
-      <%= link_to new_posts_path do %>
-        <i class="fas fa-shopping-cart">新規投稿</i>
+      <%= link_to new_user_registration_path, data: {"turbolinks" => false} do %>
+        <i class="fas fa-user-plus">新規登録</i>
       <% end %>
     </li>
 
     <li class="nav-item">
-      <%= link_to destroy_user_session_path, method: :delete do %>
-         <i class="fas fa-sign-out-alt">ログアウト</i>
+      <%= link_to  new_user_session_path do%>
+        <i class="fas fa-user">ログイン</i>
       <% end %>
     </li>
-
-    <% else %>
-    <!--ログイン前のヘッダー-->
-      <li class="nav-item">
-        <%= link_to about_path do %>
-          <i class="fa-solid fa-eject">About</i>
-        <% end %>
-      </li>
-
-      <li class="nav-item">
-        <%= link_to posts_path do %>
-          <i class="fa-solid fa-cake-candles">投稿一覧</i>
-        <% end %>
-      </li>
-
-      <li class="nav-item">
-        <%= link_to new_user_registration_path, data: {"turbolinks" => false} do %>
-          <i class="fas fa-user-plus">新規登録</i>
-        <% end %>
-      </li>
-
-      <li class="nav-item">
-        <%= link_to  new_user_session_path do%>
-          <i class="fas fa-user">ログイン</i>
-        <% end %>
-      </li>
-    <% end %>
+  <% end %>
   </ul>
 </div>

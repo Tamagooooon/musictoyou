@@ -1,11 +1,10 @@
 <div class="container">
-
-  <div class="row">
-    <div class="col-lg-12 text-center">
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="col-lg-12 text-center text-white">
       <h1><strong>共有フォーム</strong></h1>
+      <%= render "error", post: @post %>
+      <%= render "post", post: @post %>
     </div>
   </div>
-
-  <%= render "error", post: @post %>
-  <%= render "post", post: @post %>
 </div>
+

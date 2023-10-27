@@ -1,93 +1,59 @@
-<div class="row d-flex border-bottom m-5">
-  <div class="col-1 py-3 font-weight-bold">タグ</div>
-</div>
+<% posts.each_slice(2) do |posts| %>
+  <div class="row mt-5 ">
+    <ul>
+      <% posts.each do |post| %>
+        <div class="col-lg-12 text-center bg-light">
+          <p>
+            <%= image_tag post.user.get_profile_image(50,50), class: "rounded-circle" %>
+            <%= post.user.name %>
+            <%= post.created_at.strftime('%Y/%m/%d') %>
+          </p>
 
-<% posts.each do |post| %>
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-lg-12 text-center">
-      <p>投稿ユーザー画像：<%= image_tag 'man1.png' %></p>
-    </div>
-  </div>
+          <%= link_to post_path(post.id) do %>
+            <%= image_tag post.get_image, :size =>'200x150' %>
+          <% end %>
 
-  <div class="row mt-5">
-    <div class="col-lg-12 text-center">
-      <p>アーティスト画像 :
-        <%= link_to post_path(post.id) do %>
-          <%= image_tag post.get_image %>
-        <% end %>
-      </p>
-    </div>
-  </div>
+          <p><%= post.title %></p>
+          <p><%= post.body %></p>
+          <div id="waveform_<%= post.id %>">
+            <!-- the waveform will be rendered here -->
+          </div>
+          <script>
+            const wavesurfer_<%= post.id %> = WaveSurfer.create({
+              container: '#waveform_<%= post.id %>',
+              waveColor: 'white',
+              progressColor: '#EDFFBE',
+              url: '<%= post.audio.url %>',
+            })
+          </script>
+          <button onclick="wavesurfer_<%= post.id %>.playPause()">再生・停止</button>
 
-  <div class="row mt-5">
-    <div class="col-lg-12 text-center">
-      <p>アーティスト名：<%= post.title %></p>
-    </div>
-  </div>
+          <% post.tags.each do |tag| %>
+            <%= tag.tag_type %>
+          <% end %>
 
-  <div class="row mt-5">
-    <div class="col-lg-12 text-center">
-      <div id="waveform_<%= post.id %>">
-        <!-- the waveform will be rendered here -->
-      </div>
-    </div>
-  </div>
+          <p>
+            <%= link_to post_path(post.id), method: :get do %>
+              <i class="fa-regular fa-comment" style="color: #c39cf2;"></i><%= post.post_comments.count %>
+            <% end %>
 
-  <div class="row mt-5">
-    <div class="col-lg-12 text-center">
-      <button onclick="wavesurfer_<%= post.id %>.playPause()">再生・停止</button>
-    </div>
-  </div>
-
-  <div class="row mt-5">
-    <div class="col-lg-12 text-center">
-      <p>曲名と概要：<%= post.body %></p>
-    </div>
-  </div>
-
-  <div class="row mt-5">
-    <div class="col-1 py-3">
-      <% post.tags.each do |tag| %>
-        <%= tag.tag_type %>
+            <% if post.favorited_by?(current_user) %>
+              <%= link_to post_favorites_path(post), method: :delete do %>
+                <i class="fa-solid fa-heart" style="color: #c39cf2;"></i></i><%= post.favorites.count %>
+              <% end %>
+              <% else %>
+              <%= link_to post_favorites_path(post), method: :post do %>
+                <i class="fa-regular fa-heart" style="color: #c39cf2;"></i><%= post.favorites.count %>
+              <% end %>
+            <% end %>
+          </p>
+          <div id="waveform_<%= post.id %>"></div>
+        </div>
       <% end %>
-    </div>
+    </ul>
   </div>
-
-  <div class="row mt-5">
-    <div class="col-lg-12 text-center">
-      <p>ユーザーネーム：<%= post.user.name %></p>
-    </div>
-  </div>
-
-  <div class="row mt-5">
-    <div class="col-lg-12 text-center">
-      <p>投稿日：<%= post.created_at.strftime('%Y/%m/%d') %></p>
-    </div>
-  </div>
-
-  <div class="row mt-5">
-    <div class="col-lg-12 text-center">
-      <p><%= link_to "#{post.post_comments.count} コメントをする", post_path(post.id) %></p>
-    </div>
-  </div>
-
-  <div class="row mt-5">
-    <div class="col-lg-12 text-center">
-      <div id="waveform_<%= post.id %>">
-    </div>
-  </div>
-
-  <script>
-    const wavesurfer_<%= post.id %> = WaveSurfer.create({
-      container: '#waveform_<%= post.id %>',
-      waveColor: '#4F4A85',
-      progressColor: '#383351',
-      url: '<%= post.audio.url %>',
-    })
-  </script>
-
 <% end %>
+
 
 <div class="row mt-5">
   <div class="col-lg-12 text-center">

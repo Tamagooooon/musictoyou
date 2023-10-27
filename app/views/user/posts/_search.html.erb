@@ -1,9 +1,9 @@
-<div class="d-flex justify-content-end">
+<div class="d-flex justify-content-end text-white">
   <%= form_with url: posts_path, method: :get, local: true, class: 'boards__searchForm' do |f|%>
     <div class="input-group">
       <%= f.text_field :keyword, value: @keyword, class: "form-control search-control", placeholder: "キーワードを入力" %>
         <span class="input-group-btn input-group-append">
-        <%= button_tag type: "submit", class: "btn btn-secondary search-btn" do %>
+        <%= button_tag type: "submit", class: "btn btn-outline-light search-btn" do %>
           <i class="fas fa-search"></i> 検索</submit>
         <% end %>
       </span>

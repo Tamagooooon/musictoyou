@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # ゲストログイン
-
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'user/sessions#guest_sign_in'
+  end
   # 顧客用
   # URL /users/sign_in ...
   devise_for :user, skip: [:passwords], controllers: {
@@ -17,8 +19,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :user do
-    resources :users, only: [:show, :edit, :update]
-    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+    resources :users, only: [:index, :show, :edit, :update]
     get "search" => "posts#search"
   end
 

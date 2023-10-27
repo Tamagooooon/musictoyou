@@ -11,11 +11,11 @@
         <% if @bookmarks.length != 0 %>
           <% @bookmarks.each do |post| %>
             <div class="d-flex justify-content-between border-bottom border-dark">
-              <div class="py-1"><%#= image_tag post.get_image(50,50) %></div>
-              <div class="py-5"><%#= @user.nickname %></div>
-              <div class="py-5"><%#= post.facility_name %></div>
-              <div class="py-5"><%#= post.address %></div>
-              <div class="py-5"><%#= post.detailed_description %></div>
+              <div class="py-1"><%= image_tag post.get_image :size =>'50x50'  %></div>
+              <div class="py-5"><%= @user.name %></div>
+              <div class="py-5"><%= post.title %></div>
+              <div class="py-5"><%= post.body %></div>
+              <div class="py-5"><%= post.audio %></div>
               <div class="py-5"><%= link_to "詳細を確認", post_path(post.id), class: "btn btn-warning btn_lg" %></div>
             </div>
           <% end %>

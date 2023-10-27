@@ -2,11 +2,16 @@
   <div class="row">
     <div class="col-lg-12">
       <div>
-        <p>投稿ユーザー画像：<%= image_tag @post.user.get_profile_image(100,100) %></p>
+       
+        <p>投稿ユーザー画像：<%= image_tag @post.user.get_profile_image(100,100), class: "rounded-circle" %></p>
         <p>アーティスト画像 : <%= image_tag @post.get_image, :size =>'100x100' %></p>
         <p>アーティスト名：<%= @post.title %></p>
-        <div id="waveform_<%= @post.id %>">
-        <!-- the waveform will be rendered here -->
+        <div class="row mt-5">
+          <div class="col-lg-12 text-center">
+            <div id="waveform_<%= @post.id %>">
+              <!-- the waveform will be rendered here -->
+            </div>
+          </div>
         </div>
         <button onclick="wavesurfer_<%= @post.id %>.playPause()">再生・停止</button>
         <p>曲名と概要：<%= @post.body %></p>
@@ -45,7 +50,6 @@
   </div>
 
   <%= render "comment", post: @post %>
-  <%= render "favorite", post: @post %>
 
   <div class="row">
     <div class="col-lg-6">

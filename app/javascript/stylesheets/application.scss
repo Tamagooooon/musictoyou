@@ -1,4 +1,6 @@
 @use '~bootstrap/scss/bootstrap';
+* { font-family: 'Kosugi Maru', sans-serif; }
+
 
 body {
   background: #A770EF;  /* fallback for old browsers */
@@ -10,9 +12,17 @@ body {
 header {
   margin: 0;
   background-color: rgba(255, 255, 255, 0.1);
+  background-blend-mode: lighten;
 }
 
 footer {
   margin: 0;
   background-color: rgba(255, 255, 255, 0.1);
+  background-blend-mode: lighten;
+}
+
+.btn {
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
