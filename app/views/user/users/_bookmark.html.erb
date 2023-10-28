@@ -1,28 +1,28 @@
-<div class="text-center">
+<div class="text-center text-white">
   <a data-toggle="collapse" href="#collapse1">
-    <h3><strong class="border-bottom border-dark"><%= @user.name %>様のお気に入り</strong></h3>
+    <h5 class="py-2"><%= @user.name %>さんのお気に入り</h5>
   </a>
 </div>
 
-  <div class="m-5">
+  <div class="m-3">
     <div id="collapse1" class="panel-collapse collapse">
       <div class="panel-body">
 
         <% if @bookmarks.length != 0 %>
           <% @bookmarks.each do |post| %>
-            <div class="d-flex justify-content-between border-bottom border-dark">
-              <div class="py-1"><%= image_tag post.get_image :size =>'50x50'  %></div>
-              <div class="py-5"><%= @user.name %></div>
-              <div class="py-5"><%= post.title %></div>
-              <div class="py-5"><%= post.body %></div>
-              <div class="py-5"><%= post.audio %></div>
-              <div class="py-5"><%= link_to "詳細を確認", post_path(post.id), class: "btn btn-warning btn_lg" %></div>
+            <div>
+              <p>
+                <%= image_tag post.user.get_profile_image(50, 50) %>　　<%= @user.name %><br>
+                <%= post.title %><br>
+                <%= post.body %>
+              </p>
+              <div class="py-2"><%= link_to "詳細を確認", post_path(post.id), class: "btn btn-outline-light" %></div>
             </div>
           <% end %>
         <% else %>
-            <div class="text-center">
-              お気に入りはまだ登録されていません。
-            </div>
+          <div class="text-center">
+            お気に入りはまだ登録されていません。
+          </div>
         <% end %>
 
       </div>

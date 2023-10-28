@@ -1,9 +1,10 @@
 <% if current_user != @post.user %>
   <div class="bookmark">
     <% if @post.find_bookmark(current_user).blank? %>
-      <%= link_to "お気に入りに登録", post_bookmarks_path(@post), method: :post, class: "btn btn-success btn-lg" %>
+      <%= link_to "お気に入りに登録", post_bookmarks_path(@post), method: :post, class: "btn btn-outline-light mx-auto btn-lg" %>
     <% else %>
-      <%= link_to "お気に入りを解除", post_bookmark_path(@post,@post.find_bookmark(current_user)), method: :delete, class: "btn btn-outline-success btn-lg" %>
-    <% end %>
+      <%= link_to "お気に入りを解除", post_bookmark_path(@post,@post.find_bookmark(current_user)), method: :delete, 
+                                                                    class: "btn btn-outline-danger mx-auto btn-lg" %>
+      <% end %>
   </div>
 <% end %>

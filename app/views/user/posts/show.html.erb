@@ -1,59 +1,78 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-12">
-      <div>
-       
-        <p>投稿ユーザー画像：<%= image_tag @post.user.get_profile_image(100,100), class: "rounded-circle" %></p>
-        <p>アーティスト画像 : <%= image_tag @post.get_image, :size =>'100x100' %></p>
-        <p>アーティスト名：<%= @post.title %></p>
-        <div class="row mt-5">
+    <div class="col-lg-12 text-center text-white">
+      <h1><strong>投稿詳細</strong></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-7 text-center text-white">
+      
+        <p>
+          <%= image_tag @post.user.get_profile_image(100,100), class: "rounded-circle" %>
+          <strong><%= @post.user.name %></strong>
+        </p>
+        <p><%= image_tag @post.get_image, :size =>'300x200' %></p>
+        <p><%= @post.title %></p>
+
+        <div class="row">
           <div class="col-lg-12 text-center">
             <div id="waveform_<%= @post.id %>">
               <!-- the waveform will be rendered here -->
             </div>
           </div>
         </div>
-        <button onclick="wavesurfer_<%= @post.id %>.playPause()">再生・停止</button>
-        <p>曲名と概要：<%= @post.body %></p>
-        <p>ユーザーネーム：<%= @post.user.name %></p>
-
-        <% @post.tags.each do |tag| %>
-        <table class="table table-bordered table-hover bg-white mb-5">
-          <tbody>
-            <tr>
-              <th style="width: 30%">タグ</th>
-              <td style="width: 70%"><%= tag.tag_type %></td>
-            </tr>
-          </tbody>
-        </table>
-        <% end %>
-
-        <% if @post.user == current_user %>
-          <%= link_to "投稿の編集", edit_post_path(@post), class: "btn btn-info mx-auto" %>
-        <% end %>
-
-        <% if @post.user == current_user %>
-          <%= link_to "投稿の削除", post_path(@post), class: "btn btn-danger mx-auto", method: :delete %>
-        <% end %>
-
-        <p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
         <script>
           const wavesurfer_<%= @post.id %> = WaveSurfer.create({
             container: '#waveform_<%= @post.id %>',
-            waveColor: '#4F4A85',
-            progressColor: '#383351',
+            waveColor: 'white',
+            progressColor: '#EDFFBE',
             url: '<%= rails_blob_path(@post.audio) %>',
           })
         </script>
+
+        <button onclick="wavesurfer_<%= @post.id %>.playPause()">再生・停止</button>
+        <p>曲名と概要：<%= @post.body %></p>
+
+        <% @post.tags.each do |tag| %>
+          <table class="table table-bordered table-hover bg-white mb-5">
+            <tbody>
+              <tr>
+                <th style="width: 30%">タグ</th>
+                <td style="width: 70%"><%= tag.tag_type %></td>
+              </tr>
+            </tbody>
+          </table>
+        <% end %>
+
+        <%= form_with model: [@post, @post_comment] do |f| %>
+        <div class="row">
+          <div class="col-lg-7">
+            <%= f.text_area :comment, size: "30x5", placeholder: "コメントをする"  %>
+          </div>
+          <div class="col-lg-5">
+            <%= f.submit "送信する", class: "btn btn-outline-light" %>
+            コメント数：<%= @post.post_comments.count %>
+          </div>
+        </div>
+        <% end %>
+
+        <% if @post.user == current_user %>
+          <%= link_to "投稿の編集", edit_post_path(@post), class: "btn btn-outline-light" %>
+        <% end %>
+
+        <% if @post.user == current_user %>
+          <%= link_to "投稿の削除", post_path(@post), class: "btn btn-outline-light", method: :delete %>
+        <% end %>
+        
+        <%= render "bookmark", post: @post %>
+
+        投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %>
       </div>
-    </div>
-  </div>
 
-  <%= render "comment", post: @post %>
-
-  <div class="row">
-    <div class="col-lg-6">
-      <%= render "bookmark", post: @post %>
+      <div class="col-lg-5 text-center text-white">
+        <%= render "comment", post: @post %>
+      </div>
     </div>
   </div>
 </div>

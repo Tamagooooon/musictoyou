@@ -21,8 +21,203 @@ footer {
   background-blend-mode: lighten;
 }
 
-.btn {
-  margin: 0;
-  margin-left: auto;
-  margin-right: auto;
+/* user/sign_up */
+
+.col-lg-12.text-center.text-white.user.signup {
+  flex: 0 0 100%;
+  max-width: 100%;
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
+
+/* admin/login */
+
+.col-lg-12.text-center.text-white.admin.login {
+  flex: 0 0 100%;
+  max-width: 100%;
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* user/login */
+
+.col-lg-12.text-center.text-white.user.login {
+  flex: 0 0 100%;
+  max-width: 100%;
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+  
+/* homes/top */
+
+.col-lg-12.text-center.text-white.top {
+  flex: 0 0 100%;
+  max-width: 100%;
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* homes/about */
+
+.col-lg-12.text-center.text-white.about {
+  flex: 0 0 100%;
+  max-width: 100%;
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* posts/new */
+
+.col-lg-12.text-center.text-white.kyouyuu {
+    flex: 0 0 100%;
+    max-width: 100%;
+    border: 2px solid #ffffff8a;
+    padding: 3px;
+    background-color: #ffffff29;
+    border-radius: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* posts/show */
+
+.col-lg-7.text-center.text-white {
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.col-lg-5.text-center.text-white {
+    border: 2px solid #ffffff8a;
+    padding: 3px;
+    background-color: #ffffff29;
+    border-radius: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-top: 10px;
+}
+
+/* posts/index */
+
+.col-lg-12.text-center.text-white.toukou {
+  flex: 0 0 100%;
+  max-width: 100%;
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.col-lg-4 {
+  border: 2px solid rgba(255, 255, 255, 0.5411764706);
+  background-color: rgba(255, 255, 255, 0.1607843137);
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 150%;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #ffffff;
+    background-color: #fff0;
+    background-clip: padding-box;
+    border: 1px solid #ffffff;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+section {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* posts/edit */
+
+.col-lg-12.text-center.text-white.posts.edit {
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* users/index */
+
+.col-md-12.text-center.text-white.user {
+  flex: 0 0 100%;
+  max-width: 100%;
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* users/show */
+
+/* users/edit */
+
+.col-lg-12.text-center.text-white.user {
+  flex: 0 0 100%;
+  max-width: 100%;
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+

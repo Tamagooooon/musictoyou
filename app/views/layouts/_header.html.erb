@@ -33,7 +33,7 @@
 
     <li class="nav-item">
       <%= link_to users_path, class: "btn btn-outline-light mx-auto" do %>
-        ユーザー一覧
+        ユーザー 一覧
       <% end %>
     </li>
 
@@ -58,26 +58,20 @@
   <% else %>
     <!--ログイン前のヘッダー-->
     <li class="nav-item">
-      <%= link_to about_path do %>
-        <i class="fa-solid fa-eject">About</i>
+      <%= link_to about_path, class: "btn btn-outline-light mx-auto" do %>
+        About
       <% end %>
     </li>
 
     <li class="nav-item">
-      <%= link_to posts_path do %>
-        <i class="fa-solid fa-cake-candles">投稿一覧</i>
+      <%= link_to new_user_registration_path, class: "btn btn-outline-light mx-auto", data: {"turbolinks" => false} do %>
+        新規登録
       <% end %>
     </li>
 
     <li class="nav-item">
-      <%= link_to new_user_registration_path, data: {"turbolinks" => false} do %>
-        <i class="fas fa-user-plus">新規登録</i>
-      <% end %>
-    </li>
-
-    <li class="nav-item">
-      <%= link_to  new_user_session_path do%>
-        <i class="fas fa-user">ログイン</i>
+      <%= link_to  new_user_session_path, class: "btn btn-outline-light mx-auto" do%>
+        ログイン
       <% end %>
     </li>
   <% end %>

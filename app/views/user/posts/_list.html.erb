@@ -1,8 +1,9 @@
-<% posts.each_slice(2) do |posts| %>
-  <div class="row mt-5 ">
+<% posts.each_slice(1) do |posts| %>
+<section>
+  <div class="row mt-5">
     <ul>
       <% posts.each do |post| %>
-        <div class="col-lg-12 text-center bg-light">
+        <div class="col-lg-12 text-center text-white toukou">
           <p>
             <%= image_tag post.user.get_profile_image(50,50), class: "rounded-circle" %>
             <%= post.user.name %>
@@ -34,16 +35,16 @@
 
           <p>
             <%= link_to post_path(post.id), method: :get do %>
-              <i class="fa-regular fa-comment" style="color: #c39cf2;"></i><%= post.post_comments.count %>
+              <i class="fa-regular fa-comment" style="color: #ffffff8a;"></i><%= post.post_comments.count %>
             <% end %>
 
             <% if post.favorited_by?(current_user) %>
               <%= link_to post_favorites_path(post), method: :delete do %>
-                <i class="fa-solid fa-heart" style="color: #c39cf2;"></i></i><%= post.favorites.count %>
+                <i class="fa-solid fa-heart" style="color: #ff2a2a;"></i><%= post.favorites.count %>
               <% end %>
               <% else %>
               <%= link_to post_favorites_path(post), method: :post do %>
-                <i class="fa-regular fa-heart" style="color: #c39cf2;"></i><%= post.favorites.count %>
+                <i class="fa-regular fa-heart" style="color: #ff2a2a;"></i><%= post.favorites.count %>
               <% end %>
             <% end %>
           </p>
@@ -52,11 +53,5 @@
       <% end %>
     </ul>
   </div>
+</section>
 <% end %>
-
-
-<div class="row mt-5">
-  <div class="col-lg-12 text-center">
-    <%= paginate @post %>
-  </div>
-</div>

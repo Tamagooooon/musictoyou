@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row d-flex align-items-center justify-content-center">
-    <div class="col-lg-12 text-center text-white">
+    <div class="col-lg-12 text-center text-white user login">
       <h2>Log in</h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -10,13 +10,18 @@
         </div>
 
         <div class="field">
-          <%= f.label :name %><br />
+          <%= f.label :名前 %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
         </div>
 
         <div class="field">
-          <%= f.label :password %><br />
+          <%= f.label :パスワード %><br />
           <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :確認用パスワード%><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
 
         <% if devise_mapping.rememberable? %>
