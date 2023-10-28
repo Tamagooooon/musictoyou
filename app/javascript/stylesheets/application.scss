@@ -47,12 +47,27 @@ footer {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 /* admin/index */
 
 .col-lg-12.text-center.text-white.admin.users {
+  flex: 0 0 100%;
+  max-width: 100%;
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top: 40px;
+}
+
+/* admin/posts */
+
+.col-lg-12.text-center.text-white.admin.posts {
   flex: 0 0 100%;
   max-width: 100%;
   border: 2px solid #ffffff8a;
@@ -104,6 +119,7 @@ footer {
   border-radius: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-top: 45px;
   margin-bottom: 10px;
 }
 
@@ -118,6 +134,7 @@ footer {
   border-radius: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-top: 20%;
   margin-bottom: 10px;
 }
 
@@ -264,13 +281,4 @@ section {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;
-}
-
-
-/* button */
-
-.playbtn {
-    background-color: #ffffff14;
-    color: white;
-    text-align: center;
 }

@@ -7,7 +7,7 @@
 
   <div class="row">
     <div class="col-lg-7 text-center text-white">
-      
+
         <p>
           <%= image_tag @post.user.get_profile_image(100,100), class: "rounded-circle" %>
           <strong><%= @post.user.name %></strong>
@@ -57,16 +57,11 @@
         </div>
         <% end %>
 
-        <% if @post.user == current_user %>
-          <%= link_to "投稿の編集", edit_post_path(@post), class: "btn btn-outline-light" %>
-        <% end %>
+        <%= link_to "投稿の編集", edit_post_path(@post), class: "btn btn-outline-light" %>
 
-        <% if @post.user == current_user %>
-          <%= link_to "投稿の削除", post_path(@post), class: "btn btn-outline-light", method: :delete %>
-        <% end %>
-        
-        <%= render "bookmark", post: @post %>
-
+        <%= link_to "投稿の削除", admin_post_path(@post), class: "btn btn-outline-danger",
+                                                      method: :delete, "data-confirm" => "本当に投稿を削除しますか?" %>
+                                                      
         投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %>
       </div>
 

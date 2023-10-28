@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row d-flex align-items-center justify-content-center">
-    <div class="col-lg-12 text-center text-white user signup">
-      <h2>新規登録</h2>
+
+    <div class="col-lg-12 mt-3 text-center text-white midashi">
+      <h1><strong>新規登録</strong></h1>
+    </div>
+
+    <div class="col-lg-12 mt-3 text-center text-white user signup">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "user/shared/error_messages", resource: resource %>
 

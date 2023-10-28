@@ -11,6 +11,10 @@ class Post < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
+  
+  def favorited_by?(admin)
+    favorites.exists?(@user_id)
+  end
 
   def find_bookmark(user)
     bookmarks.find_by(user_id: user.id)

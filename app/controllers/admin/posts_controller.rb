@@ -1,7 +1,6 @@
 class Admin::PostsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :if_not_admin
-  before_action :set_post, only: [:index, :show, :edit, :update, :destroy]
+  before_action :authenticate_admin!
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @post = Post.page(params[:page])
@@ -46,11 +45,7 @@ class Admin::PostsController < ApplicationController
 
   private
 
-  def if_not_admin
-    redirect_to root_path unless current_user.admin?
-  end
-
   def set_post
-    @post = post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 end

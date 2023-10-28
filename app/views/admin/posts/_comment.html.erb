@@ -16,10 +16,8 @@
           
         <%= post_comment.created_at.strftime('%Y/%m/%d') %>
           
-        <% if post_comment.user == current_user %>
-          <%= link_to "コメント削除", post_post_comment_path(post_comment.post, post_comment), class: "btn btn-outline-danger", 
+        <%= link_to "コメント削除", post_post_comment_path(post_comment.post, post_comment), class: "btn btn-outline-danger", 
                                                                       method: :delete, "data-confirm" => "本当にコメントを削除しますか?" %>
-        <% end %>
       </td>
       <% end %>
     </tbody>

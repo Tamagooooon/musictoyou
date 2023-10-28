@@ -1,75 +1,79 @@
 <div class="collapse navbar-collapse" id="navbarNavDropdown">
   <ul class="navbar-nav ml-auto">
   <% if admin_signed_in? %>
-    <li class="nav-item">
+    <li class="nav-item p-2">
+      <h4><strong>adminページ</strong></h4>
+    </li>
+    
+    <li class="nav-item p-1">
       <%= link_to admin_users_path, class: "btn btn-outline-light mx-auto" do %>
         ユーザー 一覧
       <% end %>
     </li>
 
-    <li class="nav-item">
-      <%= link_to admin_posts_path, class: "btn btn-outline-light mx-auto" do %>
-        投稿一覧
-      <% end %>
-    </li>
-
-    <li class="nav-item">
+    <li class="nav-item p-1">
       <%= link_to admin_tags_path, class: "btn btn-outline-light mx-auto" do %>
         タグ一覧
       <% end %>
     </li>
+    
+    <li class="nav-item p-1">
+      <%= link_to admin_posts_path, class: "btn btn-outline-warning text-white mx-auto" do %>
+        ユーザー管理
+      <% end %>
+    </li>
 
-    <li class="nav-item">
-      <%= link_to destroy_admin_session_path, class: "btn btn-outline-light mx-auto", method: :delete do %>
+    <li class="nav-item p-1">
+      <%= link_to destroy_admin_session_path, class: "btn btn-outline-danger mx-auto", "data-confirm" => "ログアウトしますか?", method: :delete do %>
         ログアウト
       <% end %>
     </li>
 
   <!--usersログイン時のヘッダー-->
   <% elsif user_signed_in? %>
-    <li class="nav-item">
-      ようこそ<%= current_user.name %>さん
+    <li class="nav-item p-2">
+      <h4><strong>ようこそ<%= current_user.name %>さん</h4></strong>
     </li>     
 
-    <li class="nav-item">
+    <li class="nav-item p-1">
       <%= link_to users_path, class: "btn btn-outline-light mx-auto" do %>
         ユーザー 一覧
       <% end %>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item p-1">
       <%= link_to posts_path, class: "btn btn-outline-light mx-auto" do %>
         投稿一覧
       <% end %>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item p-1">
       <%= link_to new_post_path, class: "btn btn-outline-light mx-auto" do %>
         新規投稿
       <% end %>
     </li>
 
-    <li class="nav-item">
-      <%= link_to destroy_user_session_path, class: "btn btn-outline-light mx-auto", method: :delete do %>
+    <li class="nav-item p-1">
+      <%= link_to destroy_user_session_path, class: "btn btn-outline-danger mx-auto", "data-confirm" => "ログアウトしますか?", method: :delete do %>
         ログアウト
       <% end %>
     </li>
 
   <% else %>
     <!--ログイン前のヘッダー-->
-    <li class="nav-item">
+    <li class="nav-item p-1">
       <%= link_to about_path, class: "btn btn-outline-light mx-auto" do %>
         About
       <% end %>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item p-1">
       <%= link_to new_user_registration_path, class: "btn btn-outline-light mx-auto", data: {"turbolinks" => false} do %>
         新規登録
       <% end %>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item p-1">
       <%= link_to  new_user_session_path, class: "btn btn-outline-light mx-auto" do%>
         ログイン
       <% end %>

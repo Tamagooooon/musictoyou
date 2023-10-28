@@ -21,6 +21,12 @@ class Admin::UsersController < ApplicationController
     flash[:notice] = "会員情報を編集しました"
     redirect_to admin_user_path
   end
+  
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    redirect_to admin_users_path
+  end
 
   private
   
