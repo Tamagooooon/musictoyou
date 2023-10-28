@@ -10,20 +10,10 @@
         </div>
 
         <div class="field">
-          <%= f.label :名前 %><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-        </div>
-
-        <div class="field">
           <%= f.label :パスワード %><br />
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
-
-        <div class="field">
-          <%= f.label :確認用パスワード%><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
-
+        
         <% if devise_mapping.rememberable? %>
           <div class="field">
             <%= f.check_box :remember_me %>

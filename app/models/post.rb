@@ -16,6 +16,10 @@ class Post < ApplicationRecord
     bookmarks.find_by(user_id: user.id)
   end
 
+  def find_bookmark(admin)
+    bookmarks.find_by(@user_id)
+  end
+
   def self.search(keyword)
     where("title LIKE ? or body LIKE ?", "%#{keyword}%", "%#{keyword}%" )
   end

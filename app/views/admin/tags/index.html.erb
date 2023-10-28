@@ -1,51 +1,53 @@
-<div class="container border border-white contents-area bg-white" >
-  <div class="row mt-5 mb-5">
-    <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 mx-auto">
+<div class="container" >
+  <div class="row">
+    <div class="col-lg-12 text-center text-white tagname">
 
       <%= render "error", tag: @tag %>
-      
+
       <h3><strong><%= flash[:notice] %><%= flash[:alert] %></strong></h3>
-      <h3 class="text-center"><strong class="border-bottom border-dark">タグ一覧・追加/削除</strong></h3>
+      <h3><strong class="border-bottom border-white">タグ一覧・追加/削除</strong></h3>
 
-        <%= form_with model: @tag, url: admin_tags_path,method: :post do |f| %>
-          <table class="table table-border contents-area mt-5">
-            <tbody>
-              <tr>
-                <td class="align-middle">タグ名</td>
-                <td class="center align-middle">
-                  <%= f.text_field:tag_type,:size=>"35" %>
-                </td>
-                <td colspan="2"></td>
-                <td>
-                  <%= f.submit "新規登録", class: "btn btn-primary btn-lg" %>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        <% end %>
-          <thead class="table-active">
+      <%= form_with model: @tag, url: admin_tags_path,method: :post do |f| %>
+        <table class="table table-border contents-area mt-5">
+          <tbody>
             <tr>
-              <th>タグ</th>
-              <th colspan="6"></th>
+              <td class="align-middle">タグ名</td>
+              <td class="center align-middle">
+                <%= f.text_field:tag_type,:size=>"35" %>
+              </td>
+              <td>
+                <%= f.submit "新規登録", class: "btn btn-outline-light mx-auto btn-lg" %>
+              </td>
             </tr>
-          </thead>
-            <tbody>
-              <% @tags.each do |tag| %>
-                <tr>
-                  <td class="align-middle"><%= tag.tag_type %></td>
-                  <td colspan="3"></td>
-                  <td>
-                    <%= link_to "タグを変更する", edit_admin_tag_path(tag.id), class: "btn btn-success" %>
-                    <%= link_to "タグを削除する", admin_tag_path(tag.id), class: "btn btn-danger", method: :delete, "data-confirm" => "本当にタグを削除しますか?" %>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
 
-          <div class="pagination justify-content-center mt-3">
-            <%#= paginate @tags, theme: "bootstrap-5" %>
-          </div>
+    <div class="col-lg-12 text-center text-white tags">
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr class="text-white">
+            <th><h3><strong>タグの名前</strong></h3></th>
+            <th><h4>タグの変更</h4></th>
+            <th><h4>タグの削除</h4></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tags.each do |tag| %>
+          <tr class="text-white">
+            <td><%= tag.tag_type %></td>
+            <td><%= link_to "変更する", edit_admin_tag_path(tag.id), class: "btn btn-outline-light mx-auto" %></td>
+            <td><%= link_to "削除する", admin_tag_path(tag.id), class: "btn btn-outline-danger mx-auto", 
+                                             method: :delete, "data-confirm" => "本当にタグを削除しますか?" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      
+      <div class="pagination justify-content-center mt-3">
+        <%= paginate @tags %>
+      </div>
 
     </div>
   </div>

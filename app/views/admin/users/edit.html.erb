@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="col-lg-12 text-center text-white user ">
+      
+      <h1>プロフィール編集</h1>
+      
+      <%= form_with model: @user do |f| %>
+      <div class="row mt-6">
+        <div class="col-lg-12">
+          <label for="inputName">Name</label>
+          <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-lg-12">
+          <label for="inputImage">ProfileImage</label>
+        <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-lg-12">
+          <%= f.submit "変更を保存", class: "btn btn-outline-light mx-auto" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

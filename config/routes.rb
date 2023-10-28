@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     post 'users/guest_sign_in', to: 'user/sessions#guest_sign_in'
   end
+  
   # 顧客用
   # URL /users/sign_in ...
   devise_for :user, skip: [:passwords], controllers: {
@@ -32,7 +33,11 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
-
+  
+  namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update, :destroy]
+  end
+  
   namespace :admin do
     resources :tags, only: [:index, :create, :edit, :update, :destroy]
   end

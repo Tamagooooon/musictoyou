@@ -2,9 +2,9 @@
   <ul class="navbar-nav ml-auto">
   <% if admin_signed_in? %>
     <li class="nav-item">
-      <%#= link_to admin_user_path do %>
-        <i class="fa-solid fa-cake-candles">ユーザー一覧</i>
-      <%# end %>
+      <%= link_to admin_users_path, class: "btn btn-outline-light mx-auto" do %>
+        ユーザー 一覧
+      <% end %>
     </li>
 
     <li class="nav-item">

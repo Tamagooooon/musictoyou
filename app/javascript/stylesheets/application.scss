@@ -47,6 +47,50 @@ footer {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;
+  margin-top: 100px;
+}
+
+/* admin/index */
+
+.col-lg-12.text-center.text-white.admin.users {
+  flex: 0 0 100%;
+  max-width: 100%;
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top: 40px;
+}
+
+/* admin/tag */
+
+.col-lg-12.text-center.text-white.tagname {
+  flex: 0 0 100%;
+  max-width: 100%;
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.col-lg-12.text-center.text-white.tags {
+  flex: 0 0 100%;
+  max-width: 100%;
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 /* user/login */
@@ -62,7 +106,7 @@ footer {
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
-  
+
 /* homes/top */
 
 .col-lg-12.text-center.text-white.top {
@@ -94,14 +138,15 @@ footer {
 /* posts/new */
 
 .col-lg-12.text-center.text-white.kyouyuu {
-    flex: 0 0 100%;
-    max-width: 100%;
-    border: 2px solid #ffffff8a;
-    padding: 3px;
-    background-color: #ffffff29;
-    border-radius: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  flex: 0 0 100%;
+  max-width: 100%;
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 /* posts/show */
@@ -117,21 +162,21 @@ footer {
 }
 
 .col-lg-5.text-center.text-white {
-    border: 2px solid #ffffff8a;
-    padding: 3px;
-    background-color: #ffffff29;
-    border-radius: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+  border: 2px solid #ffffff8a;
+  padding: 3px;
+  background-color: #ffffff29;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-    padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  padding-top: 10px;
 }
 
 /* posts/index */
@@ -158,19 +203,19 @@ footer {
 }
 
 .form-control {
-    display: block;
-    width: 100%;
-    height: calc(1.5em + 0.75rem + 2px);
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #ffffff;
-    background-color: #fff0;
-    background-clip: padding-box;
-    border: 1px solid #ffffff;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #ffffff;
+  background-color: #fff0;
+  background-clip: padding-box;
+  border: 1px solid #ffffff;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 section {
@@ -221,3 +266,11 @@ section {
   margin-bottom: 10px;
 }
 
+
+/* button */
+
+.playbtn {
+    background-color: #ffffff14;
+    color: white;
+    text-align: center;
+}

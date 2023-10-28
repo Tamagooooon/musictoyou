@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     
-    <div class="col-lg-12 text-center text-white usermidashi">
+    <div class="col-lg-12 text-center text-white admin usersmidashi">
       <h2><strong>ユーザー 一覧</strong></h2>
     </div>
     
-    <div class="col-lg-12 text-center text-white user">
+    <div class="col-lg-12 text-center text-white admin users">
       <table class="table table-hover table-inverse">
         <thead>
           <tr class="text-white">
@@ -19,14 +19,14 @@
           <tr class="text-white">
             <td><%= image_tag user.get_profile_image(50, 50), class: "rounded-circle" %></td>
             <td><%= user.name %></td>
-            <td><%= link_to 'ユーザー詳細', user_path(user.id) %></td>
+            <td><%= link_to 'ユーザー詳細', admin_user_path(user.id) %></td>
           </tr>
         <% end %>
         </tbody>
       </table>
-        
-      <%= paginate @users %>
       
+      <%= paginate @users %>
+    
     </div>
   </div>
 </div>
