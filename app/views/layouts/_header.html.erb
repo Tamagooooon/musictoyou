@@ -1,25 +1,19 @@
 <div class="collapse navbar-collapse" id="navbarNavDropdown">
   <ul class="navbar-nav ml-auto">
   <% if admin_signed_in? %>
-    <li class="nav-item p-2">
+    <div class="text-align:justify p-1 pr-5">
       <h4><strong>adminページ</strong></h4>
-    </li>
-    
+    </div>
+
     <li class="nav-item p-1">
-      <%= link_to admin_users_path, class: "btn btn-outline-light mx-auto" do %>
-        ユーザー 一覧
+      <%= link_to admin_users_path, class: "btn btn-outline-warning text-white mx-auto" do %>
+        ユーザー管理
       <% end %>
     </li>
 
     <li class="nav-item p-1">
       <%= link_to admin_tags_path, class: "btn btn-outline-light mx-auto" do %>
         タグ一覧
-      <% end %>
-    </li>
-    
-    <li class="nav-item p-1">
-      <%= link_to admin_posts_path, class: "btn btn-outline-warning text-white mx-auto" do %>
-        ユーザー管理
       <% end %>
     </li>
 
@@ -33,7 +27,7 @@
   <% elsif user_signed_in? %>
     <li class="nav-item p-2">
       <h4><strong>ようこそ<%= current_user.name %>さん</h4></strong>
-    </li>     
+    </li>
 
     <li class="nav-item p-1">
       <%= link_to users_path, class: "btn btn-outline-light mx-auto" do %>

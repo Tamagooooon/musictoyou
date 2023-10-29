@@ -1,44 +1,10 @@
-<div class="container" >
+<div class="container">
   <div class="row">
-    <div class="col-lg-12 mt-4 text-center text-white midashi">
-      <h1><strong>ユーザー管理</strong></h1>
+    <div class="col-lg-12 text-center text-white midashi">
+      <h1><strong>投稿一覧</strong></h1>
     </div>
-    
-    <div class="col-lg-12 text-center text-white admin posts">
-      <table class="table table-hover table-inverse">
-        <thead>
-          <tr class="text-white">
-            <th>プロフィール画像</th>
-            <th>名前</th>
-            <th>email</th>
-            <th>ユーザーの詳細</th>
-            <th>投稿の詳細</th>
-            <th>コメントの詳細</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @posts.each do |post| %>
-          <tr class="text-white">
-            <td><%= image_tag post.user.get_profile_image(50, 50), class: "rounded-circle" %></td>
-            <td><%= post.user.name %></td>
-            <td><%= post.user.email %></td>
-            <td>
-              <%= link_to "ユーザー詳細へ", admin_user_path(post.user.id), class: "btn btn-outline-warning text-white mx-auto" %>
-            </td>
-            <td>
-              <%= link_to "投稿詳細へ", admin_post_path(post.id), class: "btn btn-outline-warning text-white mx-auto" %>
-            </td>
-            <td>
-              <%= link_to "コメント一覧へ", admin_post_path(post.id), class: "btn btn-outline-warning text-white mx-auto" %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    
-    <div class="pagination justify-content-center mt-3">
-      <%= paginate @post %>
+    <div class="col-lg-12">
+      <%= render 'list', posts: @posts %>
     </div>
   </div>
 </div>

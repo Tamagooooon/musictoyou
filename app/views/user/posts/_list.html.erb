@@ -38,7 +38,7 @@
               <i class="fa-regular fa-comment" style="color: #ffffff8a;"></i><%= post.post_comments.count %>
             <% end %>
 
-            <% if post.favorited_by?(current_user) %>
+            <% if post.favorited_by?(current_user)%>
               <%= link_to post_favorites_path(post), method: :delete do %>
                 <i class="fa-solid fa-heart" style="color: #ff2a2a;"></i><%= post.favorites.count %>
               <% end %>

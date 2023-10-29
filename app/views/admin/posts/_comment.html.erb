@@ -16,7 +16,7 @@
           
         <%= post_comment.created_at.strftime('%Y/%m/%d') %>
           
-        <%= link_to "コメント削除", post_post_comment_path(post_comment.post, post_comment), class: "btn btn-outline-danger", 
+        <%= link_to "コメント削除", admin_post_comment_path(post_comment.post, post_comment), class: "btn btn-outline-danger", 
                                                                       method: :delete, "data-confirm" => "本当にコメントを削除しますか?" %>
       </td>
       <% end %>

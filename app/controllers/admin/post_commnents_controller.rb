@@ -1,5 +1,7 @@
 class Admin::PostCommnentsController < ApplicationController
-class User::PostCommentsController < ApplicationController
+class Admin::PostCommentsController < ApplicationController
+  before_action :authenticate_admin!
+  
   def create
     post = Post.find(params[:post_id])
     comment = post_comments.new(post_comment_params)
@@ -10,7 +12,7 @@ class User::PostCommentsController < ApplicationController
 
   def destroy
     PostComment.find(params[:id]).destroy
-    redirect_to post_path(params[:post_id])
+    redirect_to admin_post_path(params[:post_id])
   end
 
   private

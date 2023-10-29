@@ -31,7 +31,7 @@ class Admin::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to post_path(@post.id)
+      redirect_to admin_post_path(@post.id)
     else
       render :index
     end
@@ -40,12 +40,16 @@ class Admin::PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    redirect_to posts_path
+    redirect_to admin_posts_path
   end
 
   private
 
   def set_post
     @post = Post.find(params[:id])
+  end
+  
+  def post_params
+    params.require(:post).permit(:user_id, :body, :title, :image, :audio, :facility_name, :tag_ids )
   end
 end

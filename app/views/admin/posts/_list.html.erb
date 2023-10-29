@@ -10,7 +10,7 @@
             <%= post.created_at.strftime('%Y/%m/%d') %>
           </p>
 
-          <%= link_to post_path(post.id) do %>
+          <%= link_to admin_post_path(post.id) do %>
             <%= image_tag post.get_image, :size =>'200x150' %>
           <% end %>
 
@@ -32,22 +32,7 @@
           <% post.tags.each do |tag| %>
             <%= tag.tag_type %>
           <% end %>
-
-          <p>
-            <%= link_to post_path(post.id), method: :get do %>
-              <i class="fa-regular fa-comment" style="color: #ffffff8a;"></i><%= post.post_comments.count %>
-            <% end %>
-
-            <% if post.favorited_by?(@user) %>
-              <%= link_to post_favorites_path(post), method: :delete do %>
-                <i class="fa-solid fa-heart" style="color: #ff2a2a;"></i><%= post.favorites.count %>
-              <% end %>
-              <% else %>
-              <%= link_to post_favorites_path(post), method: :post do %>
-                <i class="fa-regular fa-heart" style="color: #ff2a2a;"></i><%= post.favorites.count %>
-              <% end %>
-            <% end %>
-          </p>
+          
           <div id="waveform_<%= post.id %>"></div>
         </div>
       <% end %>
