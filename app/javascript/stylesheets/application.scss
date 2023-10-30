@@ -154,7 +154,7 @@ footer {
 
 /* posts/new */
 
-.col-lg-12.text-center.text-white.kyouyuu {
+.kyouyuu {
   flex: 0 0 100%;
   max-width: 100%;
   border: 2px solid #ffffff8a;
@@ -193,10 +193,13 @@ footer {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
-  padding-top: 10px;
 }
 
 /* posts/index */
+
+.midashi {
+  padding-top: 10px;
+}
 
 .col-lg-12.text-center.text-white.toukou {
   flex: 0 0 100%;
@@ -209,14 +212,24 @@ footer {
   padding-bottom: 10px;
 }
 
-.col-lg-4 {
+
+.sideber {
+  border: 2px solid rgba(255, 255, 255, 0.5411764706);
+  background-color: rgba(255, 255, 255, 0.1607843137);
+  border-radius: 15px;
+  padding: 10px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.col-lg-5 {
   border: 2px solid rgba(255, 255, 255, 0.5411764706);
   background-color: rgba(255, 255, 255, 0.1607843137);
   border-radius: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-left: 20px;
   margin-top: 20px;
-  margin-bottom: 150%;
 }
 
 .form-control {

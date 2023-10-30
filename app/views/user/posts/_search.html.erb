@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-end text-white">
+<div class="d-flex justify-content-end text-white sideber">
   <%= form_with url: posts_path, method: :get, local: true, class: 'boards__searchForm' do |f|%>
     <div class="input-group">
       <%= f.text_field :keyword, value: @keyword, class: "form-control search-control", placeholder: "キーワードを入力" %>
