@@ -168,7 +168,7 @@ footer {
 
 /* posts/show */
 
-.col-lg-7.text-center.text-white {
+.post-show {
   border: 2px solid #ffffff8a;
   padding: 3px;
   background-color: #ffffff29;
@@ -178,7 +178,7 @@ footer {
   margin-bottom: 10px;
 }
 
-.col-lg-5.text-center.text-white {
+.comment-show {
   border: 2px solid #ffffff8a;
   padding: 3px;
   background-color: #ffffff29;
@@ -186,6 +186,7 @@ footer {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;
+  margin-left: 50px;
 }
 
 .row {
@@ -193,6 +194,23 @@ footer {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+}
+
+.comment {
+
+}
+
+.comment-btn {
+  padding-top: 80px;
+  padding-right: 30px;
+}
+
+.profile-photo-name {
+  padding-left: 20px;
+}
+
+.follow {
+  padding-top: 30px;
 }
 
 /* posts/index */
