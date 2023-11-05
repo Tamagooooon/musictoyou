@@ -1,0 +1,14 @@
+<% if post.favorited_by?(current_user) %>
+  <p>
+    <%= link_to post_favorites_path(post), method: :delete, remote: true, data: {"turbolinks" => false} do %>
+      <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+      <span style="color: red;"><%= post.favorites.count %></span>
+    <% end %>
+  </p>
+  <% else %>
+  <p>
+    <%= link_to post_favorites_path(book), method: :post, remote: true, data: {"turbolinks" => false} do %>
+      ♡<%= post.favorites.count %>
+    <% end %>
+  </p>
+<% end %>

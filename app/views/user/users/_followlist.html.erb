@@ -1,14 +1,13 @@
 <% if users.exists? %>
-  <% users.each do |user| %>
-    <table>
-      <tbody>
-        <tr>
-          <td>フォロー数: <%= user.followings.count %></td>
-          <td>フォロワー数: <%= user.followers.count %></td>
-        </tr>
-      </tbody>
-    </table>
-  <% end %>
+  <% current_user.id = @user.id %>
+  <table>
+    <tbody>
+      <tr>
+        <td>フォロー数: <%= current_user.followings.count %></td>
+        <td>フォロワー数: <%= current_user.followers.count %></td>
+      </tr>
+    </tbody>
+  </table>
 <% else %>
   <p>ユーザーはいません</p>
 <% end %>

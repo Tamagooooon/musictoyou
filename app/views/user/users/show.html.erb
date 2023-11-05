@@ -1,24 +1,28 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-12 text-center text-white">
+    <div class="col-12 text-center text-white midashi">
       <h1><strong>ユーザー詳細</strong></h1>
     </div>
 
-    <div class="col-lg-4 text-center text-white">
-      <h3>ユーザー名　<strong><%= @user.name %></strong></h3>
+    <div class="col-4 text-center text-white sideber">
+      <div class="row">
+        <div class="col-12">
+          <h3>ユーザー名　<strong><%= @user.name %></strong></h3>
 
-      <%= image_tag @user.get_profile_image(100,100), class: "rounded-circle" %>
-
-      <%= render 'followlist', users: @users %>
-
-      <% if @user.id == current_user.id %>
-        <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-light" %></p>
-      <% end %>
-
-      <%= render "bookmark", bookmark: @bookmark %>
+          <%= image_tag @user.get_profile_image(100,100), class: "rounded-circle" %>
+    
+          <div class="followlist"><%= render 'followlist', users: @users %></div>
+    
+          <% if @user.id == current_user.id %>
+            <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-light" %></p>
+          <% end %>
+    
+          <%= render "bookmark", bookmark: @bookmark %>
+        </div>
+      </div>
     </div>
 
-    <div class="col-lg-8 text-center">
+    <div class="col-lg-7 text-center">
       <%= render 'user/posts/list', posts: @posts %>
     </div>
   </div>
