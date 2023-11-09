@@ -140,7 +140,7 @@ footer {
 
 /* homes/about */
 
-.col-lg-12.text-center.text-white.about {
+.about {
   flex: 0 0 100%;
   max-width: 100%;
   border: 2px solid #ffffff8a;
@@ -150,6 +150,7 @@ footer {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 /* posts/new */
@@ -189,20 +190,12 @@ footer {
   margin-left: 50px;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
 .comment {
 
 }
 
 .comment-btn {
   padding-top: 80px;
-  padding-right: 30px;
 }
 
 .profile-photo-name {

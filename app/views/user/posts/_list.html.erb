@@ -27,6 +27,8 @@
           </script>
           <button onclick="wavesurfer_<%= post.id %>.playPause()">再生・停止</button>
 
+          <%= render "favorite", post: @post %>
+
           <% post.tags.each do |tag| %>
             <%= tag.tag_type %>
           <% end %>
