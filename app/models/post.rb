@@ -9,11 +9,7 @@ class Post < ApplicationRecord
   has_many :tags, through: :post_and_tags
 
   def favorited_by?(user)
-    favorites.where(user_id: user.id).exists?
-  end
-  
-  def favorited_by?(admin)
-    favorites.exists?(@user_id)
+    favorites.exists?(user_id: user.id)
   end
 
   def find_bookmark(user)
