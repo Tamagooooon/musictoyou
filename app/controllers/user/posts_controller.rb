@@ -14,6 +14,7 @@ class User::PostsController < ApplicationController
   end
 
   def index
+    @post = Post.includes(:favorites).where(user_id: current_user.id)
     @post = Post.page(params[:page])
     if params[:new_post]
       @posts = Post.new_post
