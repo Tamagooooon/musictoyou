@@ -10,10 +10,10 @@
 
         <div class="row">
           <div class="col-6 profile-photo">
-            <%= image_tag @post.user.get_profile_image(100,100), class: "rounded-circle" %>　　
+            <%= image_tag @post.user.get_profile_image(100,100), class: "rounded-circle" %>
             <strong><%= @post.user.name %></strong>
           </div>
-            
+
           <div class="col-5 follow">
             <% if current_user.following?(@user) %>
               <%= link_to "フォロー外す", post_relationships_path(@user.id), class: "btn btn-outline-light", method: :delete %>
@@ -22,7 +22,7 @@
             <% end %>
           </div>
         </div>
-          
+
         </p>
         <p><%= image_tag @post.get_image, :size =>'300x200' %></p>
         <p><%= @post.title %></p>
@@ -71,9 +71,6 @@
 
         <% if @post.user == current_user %>
           <%= link_to "投稿の編集", edit_post_path(@post), class: "btn btn-outline-light" %>
-        <% end %>
-
-        <% if @post.user == current_user %>
           <%= link_to "投稿の削除", post_path(@post), class: "btn btn-outline-light", method: :delete %>
         <% end %>
 

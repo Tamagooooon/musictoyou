@@ -1,12 +1,13 @@
 <% post.each do |post| %>
   <% if user_signed_in? && current_user.favorited_by?(post) %>
     <%= link_to post_favorites_path(post), method: :delete, remote: true, data: { "turbolinks" => false } do %>
-      <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+      <i class="fa-solid fa-heart" style="color: #ff2a2a;"></i>
       <span style="color: red;"><%= post.favorites.count %></span>
     <% end %>
   <% else %>
     <%= link_to post_favorites_path(post), method: :post, remote: true, data: { "turbolinks" => false } do %>
-      ♡<%= post.favorites.count %>
+      <i class="fa-regular fa-heart" style="color: #ff2a2a;"></i>
+      <span style="color: red;"><%= post.favorites.count %></span>
     <% end %>
   <% end %>
 <% end %>

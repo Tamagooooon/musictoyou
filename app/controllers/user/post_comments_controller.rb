@@ -1,4 +1,7 @@
 class User::PostCommentsController < ApplicationController
+
+  before_action :authorize_user, only: [:edit, :update, :destroy]
+
   def create
     post = Post.find(params[:post_id])
     comment = current_user.post_comments.new(post_comment_params)
